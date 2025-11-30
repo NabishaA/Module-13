@@ -28,13 +28,41 @@ To write a Python program to evaluate a user-given Prefix expression using a sta
 ### PROGRAM
 
 ```
+#Reg_no: 212223060177
+#Name: NABISHA A
 
+OPERATORS=set(['*','-','+','/'])
+
+def prefix_Eval(x):
+    stack=[]
+    for i in x[::-1]:
+        if i not in OPERATORS:
+            stack.append(int(i))
+        else:
+            a=stack.pop()
+            b=stack.pop()
+            if i=='+':
+                stack.append(a+b)
+            elif i=='-':
+                stack.append(a-b)
+            elif i=='*':
+                stack.append(a*b)
+            elif i=='/':
+                stack.append(a/b)
+    return stack[0]
+
+m=input()
+print("The prefix expression is",m)
+n=m.split()
+print("The result is",prefix_Eval(n))
 
 ```
 
 
 ### OUTPUT
 
-
+![image](https://github.com/user-attachments/assets/4d8c3b77-1416-47cc-81e4-7e1317fedcc0)
 
 ### RESULT
+
+Thus, the python program to evaluate a user-given Prefix expression using a stack has been executed and verified successfully.
